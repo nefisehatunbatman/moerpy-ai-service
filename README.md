@@ -1,16 +1,18 @@
 # MOERPY AI Service
 
+**Bu repo, MOERPY monorepo'sundaki `ai-service/` bileşeninin bağımsız bir aynasıdır** — sadece bu servisin kaynak kodunu içerir, MOERPY frontend/Edge Function/Supabase migration'ları burada yer almaz (onlar ayrı, ana MOERPY reposunda geliştiriliyor). Komutlar ve dosya yolları bu README'de repo **kökünden** verilmiştir.
+
 Güncel değişiklikler: [15 Eylül inceleme düzeltmeleri ve test sonuçları](docs/REVIEW_FIXES.md). Analiz ve karar üretimi finansal rol gerektirir; raporlama saat dilimi `REPORTING_TIMEZONE` ile belirlenir (varsayılan `Europe/Istanbul`).
 
 **AI Decision Layer for Business — bağımsız finansal karar servisi**
 
 Servis, doğrulanmış işletme verisinden deterministik KPI ve anomali üretir; sayısal kanıtları kodla oluşturur, LLM'yi yalnız nitel yönetici önerileri için kullanır. Karar taslakları insan onayına sunulur. Confidence, doğruluk olasılığı değil, açıklanabilir kanıt yeterlilik skorudur.
 
-Bu sürüm yalnız `ai-service/` içinde geliştirilmiştir. Mevcut MOERPY frontend/Edge Function bağlantısı repository'de zaten vardır, ancak **v2'nin zorunlu imzalı kapsam sözleşmesine henüz uyarlanmış değildir**. Eski proxy'nin yalnız internal token taşıyan çağrıları reddedilir. Entegrasyon sorumlusu [API sözleşmesini](docs/API_CONTRACT.md) uygulamalıdır.
+MOERPY'nin mevcut frontend/Edge Function entegrasyonu ayrı repoda geliştiriliyor, ancak **v2'nin zorunlu imzalı kapsam sözleşmesine henüz uyarlanmış değil**. Eski proxy'nin yalnız internal token taşıyan çağrıları reddedilir. Entegrasyon sorumlusu [API sözleşmesini](docs/API_CONTRACT.md) uygulamalıdır.
 
 ## Büyük veriyle yerel kullanım
 
-Python 3.11 gerekir. Komutlar `ai-service/` içinden çalıştırılır:
+Python 3.11 gerekir. Komutlar repo kökünden çalıştırılır:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
@@ -76,7 +78,7 @@ Gerçek sağlayıcıyı seçmek için `LLM_MODE=live` ve `LLM_API_KEY`; gerçek 
 
 Bu komut pytest sonuçlarını `data/test-results.txt` ve `data/test-results.xml` dosyalarına yazar. `--full`, indeksin varlığını zorunlu kılar ve 24 ayın tamamında fatura gelirleriyle reconciliation ve karar üretimi yapar; `data/business_validation.json` üretir. Unit testler kendi SQLite veritabanlarını kullanır; `.env` veya mevcut servis DB'sine bağımlı değildir. Büyük indeks yoksa dataset pytest testleri skip olur; `--full` doğrulaması ise başarı sayılmaz.
 
-[CI şablonu](ci/github-actions.yml) hazırdır; repository kökündeki workflow dizinine bağlamak MOERPY/repository sorumlusunun işidir. Bu kapsamda kök workflow değiştirilmedi; otomatik uzak CI aktif edildiği iddia edilmez.
+[CI şablonu](ci/github-actions.yml) hazırdır; `.github/workflows/` altına taşınıp etkinleştirilmesi gerekir — bu bağımsız repoda henüz aktif edilmedi, otomatik uzak CI çalıştığı iddia edilmez.
 
 [İşletim rehberi](docs/OPERATIONS.md), DB upgrade/backup, container, readiness ve provider geçişini açıklar. Docker/Compose tanımları servisin içindedir. DB şeması eksikse startup upgrade ister; eski DB kullanılacaksa servis durdurulup `python -m app.db.migrate` çalıştırılır. SQLite upgrade otomatik backup alır. Eski tenant'sız kayıtlar `legacy-unscoped` olur ve normal API'de açılmaz; yeni analiz gerekir.
 
