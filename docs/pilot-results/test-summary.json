@@ -1,0 +1,10 @@
+{
+  "date": "2026-09-17",
+  "scope": "ai-service only",
+  "unit_and_business_integration": {"passed": 232, "skipped": 3, "warnings": 1, "duration_seconds": 26.04},
+  "separate_postgres_integration": {"passed": 3, "duration_seconds": 1.09},
+  "latest_real_api": {"passed": false, "error_code": "provider_rate_limited", "http_status": 503, "anomalies": 6, "not_evaluated": 5, "health_after_failure": 200},
+  "intermediate_real_api": {"cards_generated": 1, "full_run_passed": false, "artifact": "live-partial.json"},
+  "external_backend_frontend_acceptance": "blocked_not_passed",
+  "enterprise_demo_verdict": "NO_GO"
+}

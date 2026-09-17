@@ -1,0 +1,4 @@
+[
+  {"id": "WF-1", "company_id": "COMP-001", "store_id": "STR-002", "product_id": "PRD-003", "event_date": "2026-02-20", "event_type": "waste", "quantity": 40, "reason": "expired", "cost_amount": 22000},
+  {"id": "WF-2", "company_id": "COMP-001", "store_id": "STR-001", "product_id": "PRD-002", "event_date": "2026-02-15", "event_type": "return", "quantity": 20, "reason": "customer_return"}
+]

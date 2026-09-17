@@ -1,0 +1,60 @@
+{
+  "readiness": 200,
+  "unsigned_request": 401,
+  "anomalies": 6,
+  "llm_mode": "live",
+  "pilot_acceptance": true,
+  "cards": [],
+  "failures": [
+    {
+      "anomaly_id": "ANO-1988bd153587-888215840623",
+      "status": 502,
+      "error": {
+        "detail": "Upstream unavailable",
+        "request_id": "525270da295f494ca9726e6ff6c73828"
+      }
+    },
+    {
+      "anomaly_id": "ANO-f379d781ba3a-888215840623",
+      "status": 502,
+      "error": {
+        "detail": "Upstream unavailable",
+        "request_id": "4fb2d6a03f6c4d2bbee31e55236b68c2"
+      }
+    },
+    {
+      "anomaly_id": "ANO-044e1b7ab34d-888215840623",
+      "status": 502,
+      "error": {
+        "detail": "Upstream unavailable",
+        "request_id": "db8b055131b44bed89c8df34a348da3b"
+      }
+    },
+    {
+      "anomaly_id": "ANO-63bafed15182-888215840623",
+      "status": 502,
+      "error": {
+        "detail": "Upstream unavailable",
+        "request_id": "5cbd232cd83d491382398b7614bb62db"
+      }
+    },
+    {
+      "anomaly_id": "ANO-8c4d9247c7a1-888215840623",
+      "status": 502,
+      "error": {
+        "detail": "Upstream unavailable",
+        "request_id": "cf9f88c3cdeb42659885204c66e828b5"
+      }
+    },
+    {
+      "anomaly_id": "ANO-16a5f1af878d-888215840623",
+      "status": 502,
+      "error": {
+        "detail": "Upstream unavailable",
+        "request_id": "b3090d3ed3774dbc9af8d6a830570b3c"
+      }
+    }
+  ],
+  "passed": false,
+  "health_after_failures": 200
+}

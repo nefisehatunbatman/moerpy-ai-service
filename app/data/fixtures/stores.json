@@ -1,0 +1,5 @@
+[
+  {"id": "STR-001", "company_id": "COMP-001", "code": "BR-001", "name": "İstanbul Kadıköy Mağazası", "region": "Marmara", "city": "İstanbul"},
+  {"id": "STR-002", "company_id": "COMP-001", "code": "BR-002", "name": "Ankara Çankaya Mağazası", "region": "İç Anadolu", "city": "Ankara"},
+  {"id": "STR-101", "company_id": "COMP-002", "code": "BR-101", "name": "İzmir Bornova Mağazası", "region": "Ege", "city": "İzmir"}
+]

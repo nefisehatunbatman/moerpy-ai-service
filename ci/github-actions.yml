@@ -1,0 +1,28 @@
+# Integration template: repo maintainer must install this under root .github/workflows.
+# It intentionally lives inside ai-service because changes outside this service are out of scope.
+name: AI Service Checks
+on:
+  pull_request:
+    paths: ["ai-service/**"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ai-service
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements-dev.txt
+      - run: python scripts/check.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ai-service-test-results
+          path: ai-service/data/test-results.*

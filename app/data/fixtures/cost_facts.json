@@ -1,0 +1,7 @@
+[
+  {"id": "CF-1", "company_id": "COMP-001", "product_id": "PRD-001", "period_start": "2026-02-01", "period_end": "2026-02-28", "standard_unit_cost": 350, "currency": "TRY", "supplier": "Tedarikçi A"},
+  {"id": "CF-2", "company_id": "COMP-001", "product_id": "PRD-002", "period_start": "2026-02-01", "period_end": "2026-02-28", "standard_unit_cost": 110, "currency": "TRY", "supplier": "Tedarikçi B"},
+  {"id": "CF-3", "company_id": "COMP-001", "product_id": "PRD-003", "period_start": "2026-02-01", "period_end": "2026-02-28", "standard_unit_cost": 550, "currency": "TRY", "supplier": "Tedarikçi C"},
+  {"id": "CF-101", "company_id": "COMP-002", "product_id": "PRD-101", "period_start": "2026-02-01", "period_end": "2026-02-28", "standard_unit_cost": 108, "currency": "TRY", "supplier": "Tedarikçi D"},
+  {"id": "CF-102", "company_id": "COMP-002", "product_id": "PRD-102", "period_start": "2026-02-01", "period_end": "2026-02-28", "standard_unit_cost": 54, "currency": "TRY", "supplier": "Tedarikçi E"}
+]

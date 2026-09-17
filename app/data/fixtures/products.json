@@ -1,0 +1,7 @@
+[
+  {"id": "PRD-001", "company_id": "COMP-001", "code": "PRD-001", "name": "Kablosuz Kulaklık", "category": "Elektronik", "unit_of_measure": "adet"},
+  {"id": "PRD-002", "company_id": "COMP-001", "code": "PRD-002", "name": "Zeytinyağı 1L", "category": "Gıda", "unit_of_measure": "adet"},
+  {"id": "PRD-003", "company_id": "COMP-001", "code": "PRD-003", "name": "Kışlık Mont", "category": "Tekstil", "unit_of_measure": "adet"},
+  {"id": "PRD-101", "company_id": "COMP-002", "code": "PRD-101", "name": "Filtre Kahve 500g", "category": "Gıda", "unit_of_measure": "adet"},
+  {"id": "PRD-102", "company_id": "COMP-002", "code": "PRD-102", "name": "Çok Amaçlı Temizlik Ürünü", "category": "Temizlik", "unit_of_measure": "adet"}
+]

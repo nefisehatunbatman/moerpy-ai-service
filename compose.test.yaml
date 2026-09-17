@@ -1,0 +1,62 @@
+services:
+  ai-tests:
+    build:
+      context: .
+      target: test
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+      LLM_MODE: offline
+      EMBEDDING_MODE: local
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    volumes:
+      - ./data/business_24m.db:/app/data/business_24m.db:ro
+  postgres:
+    image: postgres:16-alpine
+    profiles: [postgres]
+    environment:
+      POSTGRES_DB: ai_service_test
+      POSTGRES_USER: ai_test
+      POSTGRES_PASSWORD: disposable-test-password
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U ai_test -d ai_service_test"]
+      interval: 2s
+      timeout: 2s
+      retries: 20
+  ai-postgres-tests:
+    extends:
+      service: ai-tests
+    profiles: [postgres]
+    environment:
+      TEST_POSTGRES_URL: postgresql+psycopg://ai_test:disposable-test-password@postgres:5432/ai_service_test
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: [python, -B, -m, pytest, -q, -p, "no:cacheprovider", app/tests/test_postgres_integration.py]
+  ai-smoke:
+    profiles: [smoke]
+    build:
+      context: .
+      target: runtime
+    command: [python, -B, scripts/http_smoke.py]
+    read_only: true
+    tmpfs:
+      - /tmp
+    volumes:
+      - type: bind
+        source: ./data/business_24m.db
+        target: /app/data/business_24m.db
+        read_only: true
+        bind:
+          create_host_path: false
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL

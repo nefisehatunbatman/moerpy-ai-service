@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+.env
+.env.*
+!.env.example
+*.log
+data/*.building
+data/test-results.xml
+data/test-results.txt
+data/business_validation.json
+data/http_smoke.json
+dist/

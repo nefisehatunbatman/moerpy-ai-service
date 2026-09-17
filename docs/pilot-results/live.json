@@ -1,0 +1,22 @@
+{
+  "readiness": 200,
+  "unsigned_request": 401,
+  "anomalies": 6,
+  "llm_mode": "live",
+  "acceptance_mode": "real_provider",
+  "cards": [],
+  "failures": [
+    {
+      "anomaly_id": "ANO-1988bd153587-888215840623",
+      "status": 503,
+      "error": {
+        "detail": "Model provider rate limited",
+        "request_id": "0f9a3c29e61b42539e9f8de80714d6d1",
+        "error_code": "provider_rate_limited"
+      }
+    }
+  ],
+  "not_evaluated": 5,
+  "passed": false,
+  "health_after_failures": 200
+}

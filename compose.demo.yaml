@@ -1,0 +1,37 @@
+# Standalone synthetic-data demo, independent of MOERPY's database and compose files.
+services:
+  ai-service:
+    build:
+      context: .
+      target: runtime
+    ports:
+      - "127.0.0.1:8001:8000"
+    environment:
+      ENVIRONMENT: production
+      ERP_PROVIDER: business
+      BUSINESS_DATASET_DB: /dataset/business_24m.db
+      AI_SERVICE_DATABASE_URL: sqlite:////state/service_v2.db
+      AI_SERVICE_INTERNAL_TOKEN: ${AI_SERVICE_INTERNAL_TOKEN:?Configure AI service internal token}
+      LLM_MODE: ${LLM_MODE:-offline}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-gpt-4o-mini}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.openai.com/v1}
+      EMBEDDING_MODE: local
+    volumes:
+      - type: bind
+        source: ./data/business_24m.db
+        target: /dataset/business_24m.db
+        read_only: true
+        bind:
+          create_host_path: false
+      - demo_ai_state:/state
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+volumes:
+  demo_ai_state:

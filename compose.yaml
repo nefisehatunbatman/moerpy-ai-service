@@ -1,0 +1,33 @@
+services:
+  ai-service:
+    build:
+      context: .
+      target: runtime
+    ports:
+      - "127.0.0.1:8001:8000"
+    environment:
+      ENVIRONMENT: production
+      ERP_PROVIDER: postgres
+      ERP_DATABASE_URL: ${ERP_DATABASE_URL:?Configure read-only ERP database URL}
+      AI_SERVICE_DATABASE_URL: sqlite:////state/service_v2.db
+      AI_SERVICE_INTERNAL_TOKEN: ${AI_SERVICE_INTERNAL_TOKEN:?Configure AI service internal token}
+      LLM_MODE: ${LLM_MODE:-offline}
+      EMBEDDING_MODE: ${EMBEDDING_MODE:-local}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-gpt-4o-mini}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.openai.com/v1}
+      EMBEDDING_API_KEY: ${EMBEDDING_API_KEY:-}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-text-embedding-3-small}
+      EMBEDDING_BASE_URL: ${EMBEDDING_BASE_URL:-https://api.openai.com/v1}
+    volumes:
+      - ai_state:/state
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+volumes:
+  ai_state:

@@ -1,0 +1,16 @@
+services:
+  pilot:
+    extends:
+      file: compose.demo.yaml
+      service: ai-service
+    ports: !reset []
+    restart: "no"
+    environment:
+      LLM_MODE: live
+      LLM_MAX_TOKENS: "4096"
+      LLM_TIMEOUT_SECONDS: "60"
+    command: [python, -B, scripts/http_smoke.py, --provider, business, --llm-mode, live, --output, /results/live.json]
+    volumes:
+      - ./docs/pilot-results:/results
+volumes:
+  demo_ai_state:

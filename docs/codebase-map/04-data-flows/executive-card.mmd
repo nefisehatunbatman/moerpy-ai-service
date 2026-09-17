@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant Backend
+    participant API as AI API
+    participant KPI
+    participant Evidence
+    participant LLM
+    participant DB
+    Backend->>API: signed POST /analysis/run
+    API->>KPI: compute scoped facts
+    KPI-->>API: values / status / lineage
+    API->>DB: anomaly + KPI + threshold snapshot
+    Backend->>API: signed POST /anomalies/id/generate-decision
+    API->>DB: load saved anomaly
+    API->>Evidence: analyzer + selection + policy
+    Evidence-->>API: bounded verified signals or review_required
+    API->>LLM: evidence + permitted control
+    LLM-->>API: candidate JSON or provider error
+    API->>API: validate quantities / action; project card
+    API->>DB: commit card + evidence + lifecycle
+    API-->>Backend: stable card or safe error
+

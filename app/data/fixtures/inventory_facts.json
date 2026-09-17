@@ -1,0 +1,10 @@
+[
+  {"id": "IF-1", "company_id": "COMP-001", "store_id": "STR-001", "product_id": "PRD-001", "snapshot_date": "2026-02-28", "quantity": 120, "unit_cost": 350},
+  {"id": "IF-2", "company_id": "COMP-001", "store_id": "STR-001", "product_id": "PRD-002", "snapshot_date": "2026-02-28", "quantity": 300, "unit_cost": 110},
+  {"id": "IF-3", "company_id": "COMP-001", "store_id": "STR-001", "product_id": "PRD-003", "snapshot_date": "2026-02-28", "quantity": 80, "unit_cost": 550},
+  {"id": "IF-4", "company_id": "COMP-001", "store_id": "STR-002", "product_id": "PRD-001", "snapshot_date": "2026-02-28", "quantity": 250, "unit_cost": 430},
+  {"id": "IF-5", "company_id": "COMP-001", "store_id": "STR-002", "product_id": "PRD-002", "snapshot_date": "2026-02-28", "quantity": 900, "unit_cost": 125},
+  {"id": "IF-6", "company_id": "COMP-001", "store_id": "STR-002", "product_id": "PRD-003", "snapshot_date": "2026-02-28", "quantity": 400, "unit_cost": 680},
+  {"id": "IF-101", "company_id": "COMP-002", "store_id": "STR-101", "product_id": "PRD-101", "snapshot_date": "2026-02-28", "quantity": 100, "unit_cost": 110},
+  {"id": "IF-102", "company_id": "COMP-002", "store_id": "STR-101", "product_id": "PRD-102", "snapshot_date": "2026-02-28", "quantity": 150, "unit_cost": 55}
+]

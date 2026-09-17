@@ -1,0 +1,10 @@
+[
+  {"id": "SF-1", "company_id": "COMP-001", "store_id": "STR-001", "product_id": "PRD-001", "period_start": "2026-02-01", "period_end": "2026-02-28", "quantity_sold": 500, "revenue": 250000, "discount": 5000, "unit_cost": 350},
+  {"id": "SF-2", "company_id": "COMP-001", "store_id": "STR-001", "product_id": "PRD-002", "period_start": "2026-02-01", "period_end": "2026-02-28", "quantity_sold": 1200, "revenue": 180000, "discount": 2000, "unit_cost": 110},
+  {"id": "SF-3", "company_id": "COMP-001", "store_id": "STR-001", "product_id": "PRD-003", "period_start": "2026-02-01", "period_end": "2026-02-28", "quantity_sold": 300, "revenue": 270000, "discount": 8000, "unit_cost": 550},
+  {"id": "SF-4", "company_id": "COMP-001", "store_id": "STR-002", "product_id": "PRD-001", "period_start": "2026-02-01", "period_end": "2026-02-28", "quantity_sold": 200, "revenue": 100000, "discount": 1000, "unit_cost": 430},
+  {"id": "SF-5", "company_id": "COMP-001", "store_id": "STR-002", "product_id": "PRD-002", "period_start": "2026-02-01", "period_end": "2026-02-28", "quantity_sold": 600, "revenue": 90000, "discount": 1500, "unit_cost": 125},
+  {"id": "SF-6", "company_id": "COMP-001", "store_id": "STR-002", "product_id": "PRD-003", "period_start": "2026-02-01", "period_end": "2026-02-28", "quantity_sold": 150, "revenue": 135000, "discount": 3000, "unit_cost": 680},
+  {"id": "SF-101", "company_id": "COMP-002", "store_id": "STR-101", "product_id": "PRD-101", "period_start": "2026-02-01", "period_end": "2026-02-28", "quantity_sold": 800, "revenue": 160000, "discount": 1000, "unit_cost": 110},
+  {"id": "SF-102", "company_id": "COMP-002", "store_id": "STR-101", "product_id": "PRD-102", "period_start": "2026-02-01", "period_end": "2026-02-28", "quantity_sold": 1000, "revenue": 90000, "discount": 500, "unit_cost": 55}
+]

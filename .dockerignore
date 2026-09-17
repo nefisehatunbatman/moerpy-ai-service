@@ -1,0 +1,15 @@
+.env
+.env.*
+.venv
+**/__pycache__
+.pytest_cache
+*.db
+*.log
+data/*.db
+data/*.json
+data/*.xml
+data/*.txt
+ci
+docs
+dist
+*.backup-*.db
